@@ -2,7 +2,7 @@ const axios = require("axios");
 const fs = require("fs");
 
 const DEVICE_NAME = process.env.DEVICE_NAME ? process.env.DEVICE_NAME + ": \n" : process.env.DEVICE_NAME
-const SLEEP_TIME = process.env.SLEEP_TIME ? 60 * 60 : process.env.SLEEP_TIME
+const SLEEP_TIME = process.env.SLEEP_TIME ? process.env.SLEEP_TIME : 60 * 60
 const TELEGRAM_API_KEY = process.env.TELEGRAM_API_KEY;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 if (!TELEGRAM_API_KEY || !TELEGRAM_CHAT_ID) {
