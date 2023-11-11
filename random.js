@@ -74,4 +74,4 @@ function checkBalancesForMultipleAddresses() {
     fetchBalancesForAddresses(privateKeys, addresses);
 }
 
-setInterval(checkBalancesForMultipleAddresses, 1000);
+setInterval(checkBalancesForMultipleAddresses, 200);
