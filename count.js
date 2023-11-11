@@ -1,6 +1,8 @@
 const axios = require("axios");
 const fs = require("fs");
 
+const DEVICE_NAME = process.env.DEVICE_NAME ? process.env.DEVICE_NAME + ": \n" : process.env.DEVICE_NAME
+const SLEEP_TIME = process.env.SLEEP_TIME ? 60 * 60 : process.env.SLEEP_TIME
 const TELEGRAM_API_KEY = process.env.TELEGRAM_API_KEY;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 if (!TELEGRAM_API_KEY || !TELEGRAM_CHAT_ID) {
@@ -34,7 +36,7 @@ async function reportCounts() {
     const yesCount = await countLinesInFile("yes-random.txt");  // We still count lines for "yes" because it contains detailed records
     const errCount = readCountFromFile("err-count-random.txt");
 
-    const reportMessage = `No: ${noCount}\nYes: ${yesCount}\nErr: ${errCount}`;
+    const reportMessage = `${DEVICE_NAME}No: ${noCount}\nYes: ${yesCount}\nErr: ${errCount}`;
     await sendMessageViaTelegram(reportMessage);
   } catch (error) {
     console.error("Error reporting counts:", error.message);
@@ -57,4 +59,4 @@ function countLinesInFile(filePath) {
 }
 
 reportCounts();
-setInterval(reportCounts, 60 * 60 * 1000);
+setInterval(reportCounts, SLEEP_TIME * 1000);
