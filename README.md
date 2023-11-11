@@ -48,7 +48,14 @@ export ETHERSCAN_API_KEY='your_etherscan_api_key'
 ```
 
 
-2. Run the primary script:
+2. optional: configure the interval between API calls (default: 200ms)
+
+```
+export CALL_INTERVAL=1000
+```
+
+
+3. Run the primary script:
 
 ```
 node random.js
@@ -68,7 +75,21 @@ export TELEGRAM_CHAT_ID='your_telegram_chat_id'
 ```
 
 
-2. Run the count utility:
+2. optional: configure a custom device name in the reported message (default: "")
+
+```
+export DEVICE_NAME='my device'
+```
+
+
+3. optional: configure the interval for reporting messages (default: 3600s)
+
+```
+export SLEEP_TIME=60
+```
+
+
+4. Run the count utility:
 
 
 ```
