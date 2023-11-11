@@ -2,7 +2,7 @@ const fs = require("fs");
 const { ethers } = require("ethers");
 const axios = require("axios");
 
-const CALL_INTERVAL = process.env.CALL_INTERVAL ? 200 : process.env.CALL_INTERVAL
+const CALL_INTERVAL = process.env.CALL_INTERVAL ? process.env.CALL_INTERVAL : 200
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 if (!ETHERSCAN_API_KEY) {
   console.error("Please set ETHERSCAN_API_KEY environment variable");
