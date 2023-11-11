@@ -2,6 +2,7 @@ const fs = require("fs");
 const { ethers } = require("ethers");
 const axios = require("axios");
 
+const CALL_INTERVAL = process.env.CALL_INTERVAL ? 200 : process.env.CALL_INTERVAL
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 if (!ETHERSCAN_API_KEY) {
   console.error("Please set ETHERSCAN_API_KEY environment variable");
@@ -74,4 +75,4 @@ function checkBalancesForMultipleAddresses() {
     fetchBalancesForAddresses(privateKeys, addresses);
 }
 
-setInterval(checkBalancesForMultipleAddresses, 200);
+setInterval(checkBalancesForMultipleAddresses, CALL_INTERVAL);
